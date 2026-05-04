@@ -42,7 +42,7 @@ jobs:
 
       - &install_pnpm
         name: Install pnpm
-        uses: pnpm/action-setup@10
+        uses: pnpm/action-setup@v6
 
       - name: status
         shell: bash
