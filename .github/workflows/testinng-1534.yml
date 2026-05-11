@@ -1,0 +1,22 @@
+name: testinng-1534
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - run: corepack enable
+      - run: corepack prepare yarn@4.14.1 --activate
+      - run: yarn --version
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - run: yarn install
