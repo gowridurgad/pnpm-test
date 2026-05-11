@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - run: corepack enable
-      - run: corepack prepare yarn@4.14.1 --activate
+      - name: Update yarn
+        run: yarn set version 4.14.1
       - run: yarn --version
 
       - uses: actions/setup-node@v6
